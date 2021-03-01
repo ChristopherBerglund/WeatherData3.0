@@ -14,7 +14,6 @@ namespace WeatherData2._0
     {
 
         public DbSet<Enviornment> Enviornments { get; set; }
-        public DbSet<DayAvr> DayAvrs { get; set; }
 
         public static void Initialize(WeatherDbContext context)
         {
@@ -24,10 +23,7 @@ namespace WeatherData2._0
 
             if (readWeather is null)
             {
-
-                //tempFixed1.csv = +150000 rows
-                //TempFixed2.csv = 1000 rows
-                string WeatherPath = "TempFixed1.csv";
+                string WeatherPath = "TempFuktData.csv";
                 List<string> weatherLines = File.ReadAllLines(WeatherPath)
                     .Skip(1)
                     .Distinct()
@@ -39,7 +35,7 @@ namespace WeatherData2._0
                 {
                     foreach (var line in weatherLines)
                     {
-                        var weatherData = line.Split(';');
+                        var weatherData = line.Split(',');
 
                         Enviornment env = new Enviornment();
                         try

@@ -67,10 +67,10 @@ namespace WeatherData2._0.Controllers
                 case "OutdoorTemperature_desc":
                     dayAverages = dayAverages.OrderByDescending(t => t.OutdoorTemperature);
                     break;
-                case "Date":
-                    dayAverages = dayAverages.OrderBy(t => t.Date);
+                case "IndoorTemperature":
+                    dayAverages = dayAverages.OrderBy(t => t.IndoorTemperature);
                     break;
-                case "Date_desc":
+                case "Date":
                     dayAverages = dayAverages.OrderByDescending(t => t.Date);
                     break;
                 case "IndoorHumidity":
@@ -86,7 +86,7 @@ namespace WeatherData2._0.Controllers
                     dayAverages = dayAverages.OrderByDescending(t => t.OutdoorHumidity);
                     break;
                 default:
-                    dayAverages = dayAverages.OrderBy(t => t.IndoorTemperature);
+                    dayAverages = dayAverages.OrderBy(t => t.Date);
                     break;
             }
 
@@ -110,7 +110,7 @@ namespace WeatherData2._0.Controllers
                               where measure.Date.Date == id.Value.Date
                               group measure by new
                               {
-                                  measure.Date  //.Date
+                                  measure.Date
                               } into dayMeasurent
                               select new DayDetail
                               {
@@ -125,6 +125,9 @@ namespace WeatherData2._0.Controllers
 
             switch (sortOrder)
             {
+                case "InsideTemp":
+                    dayDetails = dayDetails.OrderBy(t => t.InsideTemperature);
+                    break;
                 case "InsideTemp_desc":
                     dayDetails = dayDetails.OrderByDescending(t => t.InsideTemperature);
                     break;
@@ -133,12 +136,6 @@ namespace WeatherData2._0.Controllers
                     break;
                 case "OutsideTemp_desc":
                     dayDetails = dayDetails.OrderByDescending(t => t.OutsideTemperature);
-                    break;
-                case "Date":
-                    dayDetails = dayDetails.OrderBy(t => t.Date);
-                    break;
-                case "Date_desc":
-                    dayDetails = dayDetails.OrderByDescending(t => t.Date);
                     break;
                 case "InsideHumidity":
                     dayDetails = dayDetails.OrderBy(t => t.InsideHumidity);
@@ -152,8 +149,11 @@ namespace WeatherData2._0.Controllers
                 case "OutsideHumidity_desc":
                     dayDetails = dayDetails.OrderByDescending(t => t.OutsideHumidity);
                     break;
+                case "Date_desc":
+                    dayDetails = dayDetails.OrderByDescending(t => t.Date);
+                    break;
                 default:
-                    dayDetails = dayDetails.OrderBy(t => t.InsideTemperature);
+                    dayDetails = dayDetails.OrderBy(t => t.Date);
                     break;
             }
 

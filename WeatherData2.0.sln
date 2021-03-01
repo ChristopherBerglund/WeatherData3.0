@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherData2.0", "WeatherData2.0\WeatherData2.0.csproj", "{E0296E6A-E254-4033-BA0D-A7879DF05B02}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A135DE21-0202-4FC4-8E03-76323F68BF9C}"
+	ProjectSection(SolutionItems) = preProject
+		WeatherData2.0\bin\Debug\net5.0\TempFuktData.csv = WeatherData2.0\bin\Debug\net5.0\TempFuktData.csv
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
